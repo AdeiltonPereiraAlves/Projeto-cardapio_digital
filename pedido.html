@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <title>Document</title>
 </head>
 
@@ -64,7 +65,7 @@
                 <tfoot>
                     <tr>
                         <td>Total</td>
-                        <td>120</td>
+                        <td id="td-total"></td>
 
                     </tr>
 
@@ -87,23 +88,8 @@
 
     </main>
 
-    <script  src="https://cdn.jsdelivr.net/npm/qrcode@latest/qrcode.min.js">
-    
-        const btnPix = document.querySelector('#btn-pix')
-        // const qrCode = document.querySelector('#qrCode')
-        let payload = "00020101021226370014BR.GOV.BCB.PIX0123" + // Payload Format Indicator
-        "5204000053039865404" + // Merchant Account Information
-        "5802BR5908" + pixData.chavePix.length + pixData.chavePix + // Chave Pix
-        "5303" + pixData.valor.length + pixData.valor + // Valor
-        "5802BR59" + pixData.cidade.length + pixData.cidade + // Cidade
-        "62070503***"
-        const qr = new QRCode(document.getElementById("qrCode"), {
-            text: payload,
-            width: 200,
-            height: 200,
-        });
-        
-    </script>
+    <script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/pagamento.js"></script>
 </body>
 
 </html>

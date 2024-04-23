@@ -49,7 +49,7 @@
 
 
 
-            <div class="flex gap-7 ">
+            <div class="flex gap-7 shadow-lg shadow-surround-strong">
                 <img src="assets/hamb-1.png" alt="" class="w-28 h-28 rounded-md">
                 <div class="flex flex-col  p-5 items-center justify-center">
                     <h1 class="font-black">burgao</h1>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex gap-7 ">
+            <div class="flex gap-7 shadow-lg shadow-surround-strong p-1">
                 <img src="assets/hamb-1.png" alt="" class="w-28 h-28 rounded-md">
                 <div class="flex flex-col  p-5 items-center justify-center">
                     <h1 class="font-black">burgao frito</h1>
@@ -80,11 +80,11 @@
         </div>
 
         <!-- //carrinho -->
-        <div class="bg-slate-50 w-[80%] ml-10 h-full  lg:max-w-72  rounded-l-md flex-col items-center right-0 gap-4 hidden transition-all duration-50000 absolute "
+        <div class="bg-slate-100 w-[80%] ml-10 h-full  lg:max-w-72   justify-center rounded-l-md flex-col items-center right-0 gap-4 hidden transition-all duration-50000 absolute shadow-lg shadow-left-strong "
             id="fechar-carrinho">
             <div class="flex justify-start w-full items-baseline ">
                 <div class="text-xl ml-2 md:mt-2 p-2">
-                    <button id="botaoFecharCarrinho" ><i class="fa-solid fa-xmark "></i></button>
+                    <button id="botaoFecharCarrinho" class="hover:text-zinc-600" ><i class="fa-solid fa-xmark "></i></button>
                 </div>
                 <!-- <div class="flex w-full justify-center">
                     <h2 class="">carrinho</h2>
@@ -99,13 +99,80 @@
             <div class="flex flex-col bottom-0 fixed m-4">
               
                 <div class="font-black text-lg flex justify-center">Subtotal: $<span id="total-carrinho" class="total-carrinho"> 0.00</span></div>
-                <button class="bg-green-300 p-4 font-black text-zinc-700 rounded-sm hover:bg-green-400"><a href="/pedido.html">Finalizar Compra</a></button>
+                <button class="bg-green-300 p-4 font-black text-zinc-700 rounded-sm hover:bg-green-400" id="btn-pedidos">Finalizar Compra</button>
             </div>
 
         </div>
     </main>
+
+    <!-- //pgamentos de pedidos -->
+    <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] flex items-center justify-center pag-container">
+        <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+
+                <button id="botaoFecharModal" class="hover:text-zinc-600" ><i class="fa-solid fa-xmark "></i></button>
+           
+            <h2  class="text-center font-bold text-2xl mb-2">Pagameto</h2>
+            <div class="flex justify-center flex-col">
+                <form action="submit" class="flex flex-col">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome" id="nome" required placeholder="Digite seu nome... ">
+                    <label for="nome">Endereço: </label>
+                    <input type="text" name="endereço" id="endereço" required placeholder="Digite seu endereço...">
+                    <label for="nome">Informações Adicionais: </label>
+                    <textarea type="text" name="infoAdicional" id="infoAdicional"
+                        placeholder="Informações adicionais..."></textarea>
+                        <select id="opcoes" name="opcoes">
+                            <option value="opcao1">Pagar na entrega</option>
+                            <option value="opcao2">pagar via pix</option>
+                        </select>
+                    <input type="submit" value="Fazer pedido" class="cursor-pointer">       
+                </form>
+                <table>
+                    <thead>
+                        <th>produto</th>
+                        <th>Subtotal</th>
     
-    <script  src="./js/index.js"></script>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hambuguer<span>x2</span></td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Hambuguer<span>x2</span></td>
+                            <td>30</td>
+    
+                        </tr>
+                        <tr>
+                            <td>Hambuguer<span>x2</span></td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Hambuguer<span>x2</span></td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            120
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total</td>
+                            <td id="td-total"></td>
+    
+                        </tr>
+    
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    
+
+    
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/pagamento.js"></script>
 </body>
 
 </html>

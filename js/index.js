@@ -2,7 +2,7 @@
 
 // pegando id do html
 
-document.addEventListener('DOMContentLoaded', () => {
+
     let precoTotalCart = 0;
     let numeroItemsCart = 0;
     const carrinho = document.querySelector('#carrinho')
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.qnt++;
                 // Atualizar a exibição da quantidade na interface do usuário
                 quantitySpan.textContent = item.qnt;
-                console.log(item.qnt)
+                
                 precoTotalCart = totalCart(arryCart)
 
                 totalPreco.textContent = `${precoTotalCart}`;
@@ -172,7 +172,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
 
+        
     }
 
-});
+    //modal de pedidos e pagamento
+    
+    const btnPedidos = document.querySelector('#btn-pedidos')
+    const pagContainer = document.querySelector('.pag-container')
+    
+    btnPedidos.addEventListener('click',() =>{
+        closeCarrinho.classList.contains('hidden') ? closeCarrinho.classList.toggle('flex') && closeCarrinho.classList.remove('hidden') : closeCarrinho.classList.toggle('hidden') && closeCarrinho.classList.remove('flex');
+ 
+       pagContainer.classList.contains('hidden')? pagContainer.classList.toggle('flex') && pagContainer.classList.remove('hidden'):""
+       
+       const btn = document.querySelector('#td-total')
+       btn.textContent = precoTotalCart;
+
+
+    })
+    const butaoFecharModal = document.querySelector('#botaoFecharModal')
+
+    butaoFecharModal.addEventListener('click', () => {
+        pagContainer.classList.toggle('hidden') && pagContainer.classList.remove('flex') 
+         
+    })
+
+    //pagina de pagamento
+    
+    
+
+
+  
+    
+
+
+
 
