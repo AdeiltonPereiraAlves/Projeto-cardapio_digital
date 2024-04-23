@@ -4,12 +4,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     let precoTotalCart = 0;
+    let numeroItemsCart = 0;
     const carrinho = document.querySelector('#carrinho')
     const butaoFecharcarrinho = document.querySelector('#botaoFecharCarrinho')
     const closeCarrinho = document.querySelector('#fechar-carrinho')
     const menu = document.querySelector('.menu-container')
-
-
+    const icon = document.querySelector('.icon')
+    
+    icon.textContent = numeroItemsCart;
 
     //abrindo e fechando o carrinho
     carrinho.addEventListener('click', () => {
@@ -57,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!arryCart.some(item => item.id === id)) {
             arryCart.push(item)
             precoTotalCart = totalCart(arryCart);
+            numeroItemsCart ++;
+            icon.textContent = numeroItemsCart;
 
         }
         else {
@@ -69,6 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Se o item não foi encontrado, adicione-o ao carrinho
                 arryCart.push({ id: id, qnt: qnt + 1 }); // Adiciona o item com quantidade 1 ao carrinho
+                numeroItemsCart ++;
+                icon.textContent = numeroItemsCart;
             }
         }
         listarCarrinho(arryCart)
@@ -98,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         itemContainer.innerHTML = '';
         cart.forEach(item => {
             const itemDiv = document.createElement('div');
-            itemDiv.classList.add('flex', 'w-60', 'h-28', 'bg-slate-200', 'rounded-md', 'p-4', 'overflow-hidden');
+            itemDiv.classList.add('flex', 'w-60', 'h-28', 'bg-slate-100', 'rounded-md', 'p-4', 'overflow-hidden','border-b');
 
             const img = document.createElement('img');
             img.src = item.img;
@@ -149,9 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             quantityDiv.append(decreaseBtn, quantitySpan, increaseBtn);
             infoDiv.append(title, priceSpan, quantityDiv);
+           
             itemDiv.append(img, infoDiv);
-
-            itemContainer.appendChild(itemDiv);
+            itemContainer.appendChild(itemDiv)
+         
+            
+            
+           
 
 
         });

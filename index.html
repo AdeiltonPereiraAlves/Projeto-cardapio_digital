@@ -30,18 +30,18 @@
         </div>
     </header>
     <!-- titulo e icon do carrinho -->
-    <div class="flex w-screen items-center justify-center p-4 text-xl gap-10 relative">
+    <div class="flex w-screen items-center justify-center p-4 text-xl gap-10 relative ">
         <h1 class="font-black">Conheça Nosso Menu</h1>
         <button id="carrinho">
-            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-cart-shopping "><span class=" bg-red-500 rounded-xl w-6 p-1 text-white absolute text-xs icon"></span></i>
         </button>
 
     </div>
 
-
+    <hr>
     <!-- main  -->
     <main class="flex flex-1" >
-        <div class="grid grid-cols-1 md:grid-cols-2 max-w-7xl gap-4 mx-auto col-span-2 relative menu-container" >
+        <div class="grid grid-cols-1 md:grid-cols-2 max-w-7xl gap-4 mx-auto ml-6 col-span-2 relative menu-container mt-4" >
 
 
 
@@ -76,17 +76,17 @@
         </div>
 
         <!-- //carrinho -->
-        <div class="bg-slate-300 w-screen m-auto h-full lg:max-w-72   flex-col items-center right-0 gap-4 hidden transition-all duration-50000 absolute "
+        <div class="bg-slate-100 w-[80%] ml-10 h-full lg:max-w-72  rounded-l-md flex-col items-center right-0 gap-4 hidden transition-all duration-50000 absolute "
             id="fechar-carrinho">
             <div class="flex justify-start w-full items-baseline ">
-                <div class="text-xl">
+                <div class="text-xl ml-2 md:mt-2 p-2">
                     <button id="botaoFecharCarrinho"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div class="flex w-full justify-center">
                     <h2>carrinho</h2>
                 </div>
             </div>
-            <div class="bg-slate-300 w-screen m-auto h-full lg:max-w-72 justify-centerc flex  flex-col items-center right-0 gap-4  item-container">
+            <div class="bg-slate-100 w-screen m-auto h-full lg:max-w-72 justify-centerc flex  flex-col items-center right-0 gap-4  item-container">
 
             </div>
           
@@ -94,7 +94,7 @@
             <!-- finalizar pedido -->
             <div class="flex flex-col bottom-0 fixed m-4">
                 <span id="total-carrinho"></span>
-                <button class=bg-green-300><a href="/pedido.html">Finalizar</a></button>
+                <button class="bg-green-300 p-4 font-black text-zinc-700 rounded-sm hover:bg-green-400"><a href="/pedido.html">Finalizar Compra</a></button>
             </div>
 
         </div>
