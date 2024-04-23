@@ -13,7 +13,7 @@
     <title>Dev Buguer</title>
 </head>
 
-<body class="h-screen w-screen">
+<body class="max-w-screen overflow-x-hidden">
     <header>
         <div class=" bg-background bg-cover bg-center flex justify-center items-center h-96 relative  ">
             <img src="assets/bg.png" alt="banner" class="absolute inset-0 w-full h-full object-cover">
@@ -44,8 +44,8 @@
 
     <hr>
     <!-- main  -->
-    <main class="flex flex-1" >
-        <div class="grid grid-cols-1 md:grid-cols-2 max-w-7xl gap-4 mx-auto ml-6 col-span-2 relative menu-container mt-4" >
+    <main class="flex flex-1 lg:justify-center " >
+        <div class="grid grid-cols-1 md:grid-cols-2 max-w-7xl gap-4 mx-2 lg:mx-4  col-span-2 relative menu-container mt-4 " >
 
 
 
@@ -80,15 +80,13 @@
         </div>
 
         <!-- //carrinho -->
-        <div class="bg-slate-100 w-[80%] ml-10 h-full  lg:max-w-72   justify-center rounded-l-md flex-col items-center right-0 gap-4 hidden transition-all duration-50000 absolute shadow-lg shadow-left-strong "
+        <div class="bg-slate-100 w-[80%] ml-10 h-full  lg:max-w-72   justify-center rounded-l-md flex-col items-center right-0 gap-4 hidden transition-all duration-50000 absolute shadow-lg shadow-left-strong overflow-x-hidden "
             id="fechar-carrinho">
             <div class="flex justify-start w-full items-baseline ">
                 <div class="text-xl ml-2 md:mt-2 p-2">
                     <button id="botaoFecharCarrinho" class="hover:text-zinc-600" ><i class="fa-solid fa-xmark "></i></button>
                 </div>
-                <!-- <div class="flex w-full justify-center">
-                    <h2 class="">carrinho</h2>
-                </div> -->
+               
             </div>
             <div class="bg-slate-100 w-screen m-auto h-full lg:max-w-72 justify-centerc flex  flex-col items-center right-0 gap-4  item-container">
 
@@ -106,14 +104,14 @@
     </main>
 
     <!-- //pgamentos de pedidos -->
-    <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] flex items-center justify-center pag-container">
+    <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] hidden items-center justify-center pag-container">
         <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
 
                 <button id="botaoFecharModal" class="hover:text-zinc-600" ><i class="fa-solid fa-xmark "></i></button>
            
             <h2  class="text-center font-bold text-2xl mb-2">Pagameto</h2>
             <div class="flex justify-center flex-col">
-                <form action="submit" class="flex flex-col">
+                <form action="submit" class="flex flex-col ">
                     <label for="nome">Nome: </label>
                     <input type="text" name="nome" id="nome" required placeholder="Digite seu nome... ">
                     <label for="nome">Endereço: </label>
@@ -125,40 +123,23 @@
                             <option value="opcao1">Pagar na entrega</option>
                             <option value="opcao2">pagar via pix</option>
                         </select>
-                    <input type="submit" value="Fazer pedido" class="cursor-pointer">       
+                    <div class="w-full flex justify-center m-2"><input type="submit" value="Fazer pedido" class="cursor-pointer bg-green-400 hover:bg-green-500 text-white p-4 rounded-sm w-60"></div>       
                 </form>
-                <table>
+                <h2>Seu pedido</h2>
+                <table class="min-w-full divide-y divide-gray-200">
                     <thead>
-                        <th>produto</th>
-                        <th>Subtotal</th>
+                        <th class="w-1/2 border border-gray-300 px-4 py-2">produto</th>
+                        <th class="w-1/2 border border-gray-300 px-4 py-2">Subtotal</th>
     
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Hambuguer<span>x2</span></td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>Hambuguer<span>x2</span></td>
-                            <td>30</td>
-    
-                        </tr>
-                        <tr>
-                            <td>Hambuguer<span>x2</span></td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>Hambuguer<span>x2</span></td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            120
-                        </tr>
+                    <tbody id="tbody" class="bg-white divide-y divide-gray-200">
+                      
+                        
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td>Total</td>
-                            <td id="td-total"></td>
+                            <td class="font-black w-1/2 border border-gray-300 px-4 py-2">Total</td>
+                            <td id="td-total" class="font-black w-1/2 border border-gray-300 px-4 py-2"></td>
     
                         </tr>
     
