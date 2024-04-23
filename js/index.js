@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listarCarrinho(arryCart)
         console.log(arryCart)
         totalPreco.textContent = `${precoTotalCart}`;
+        totalPrecoMenu.textContent = `${precoTotalCart}`;
 
     }
 
@@ -99,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //listar itens do carrinho
     const itemContainer = document.querySelector('.item-container')
     const totalPreco = document.querySelector('#total-carrinho')
+    const totalPrecoMenu = document.querySelector('.total-carrinho')
 
     function listarCarrinho(cart) {
         itemContainer.innerHTML = '';
@@ -126,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quantityDiv.classList.add('flex', 'p-2', 'gap-2');
 
             const decreaseBtn = document.createElement('button');
+            decreaseBtn.classList.add('p-4','rounded-sm','border','flex','items-center','hover:bg-white','h-4','border-gray-800-dark')
             decreaseBtn.textContent = '-';
             decreaseBtn.addEventListener('click', () => {
                 if (item.qnt > 1) {
@@ -135,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     precoTotalCart = totalCart(arryCart)
 
                     totalPreco.textContent = `${precoTotalCart}`;
+                    totalPrecoMenu.textContent = `${precoTotalCart}`;
                 }
             });
 
@@ -142,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quantitySpan.textContent = item.qnt;
 
             const increaseBtn = document.createElement('button');
+            increaseBtn.classList.add('p-4','rounded-sm','border','flex','items-center','hover:bg-white','h-4','border-gray-800-dark')
             increaseBtn.textContent = '+';
             increaseBtn.addEventListener('click', () => {
                 item.qnt++;
@@ -151,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 precoTotalCart = totalCart(arryCart)
 
                 totalPreco.textContent = `${precoTotalCart}`;
+                totalPrecoMenu.textContent = `${precoTotalCart}`;
             });
 
             quantityDiv.append(decreaseBtn, quantitySpan, increaseBtn);
