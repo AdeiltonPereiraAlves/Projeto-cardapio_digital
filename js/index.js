@@ -255,13 +255,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
        const cart = arryCart.map((item) => {
          return(
-            ` -----PEDIDO------\n Nome: ${item.nome} \n- Qnt: ${item.qnt} \n Preço: R$ ${item.preco} \n`
+            ` -----PEDIDO------\n Nome: ${item.nome} |\n- Qnt: ${item.qnt} \n | Preço: R$ ${item.preco} | \n`
          )
        }).join("")
        
        const message = encodeURIComponent(cart)
        const tel = "83981112469"
-       window.open(`https://wa.me/${tel}?text=${message} Cliente:${nome} Endereço:${endereco} Total:${precoTotalCart}`, "_blanck")
+       window.open(`https://wa.me/${tel}?text=${message} Cliente:${nome} | Endereço:${endereco} |Total:${precoTotalCart}`, "_blanck")
+       
+
+       //zerando carrinho e os preços
+       arryCart.length = 0
+       totalPreco.textContent = `${0}`;
+       totalPrecoMenu.textContent = `${0}`;
+       listarCarrinho(arryCart)
+       numeroItemsCart = arryCart.length;
+       icon.textContent = numeroItemsCart;
+       location.reload()
     })
 
 
