@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
        }).join("")
        
        const message = encodeURIComponent(cart)
-       const tel = "83981112469"
+       const tel = "+5583981112469"
        window.open(`https://wa.me/${tel}?text=${message} Cliente:${nome} | Endereço:${endereco} |Total:${precoTotalCart}`, "_blanck")
        
 
