@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // numeroItemsCart++;
             numeroItemsCart = arryCart.length;
             icon.textContent = numeroItemsCart;
-            const textAddCart = "Item adicionado ao carrinho" 
+            const textAddCart = "Item adicionado ao carrinho"
             const cor = "#86EFAC"
             tostifyMensage(textAddCart, cor)
 
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const text = "O item ja esta no carrinho"
                 const cor = "red"
                 tostifyMensage(text, cor)
-              
+
                 // Toastify({
                 //     text: "O item ja esta no carrinho",
                 //     duration: 3000,
-                   
+
                 //     close: true,
                 //     gravity: "top", // `top` or `bottom`
                 //     position: "center", // `left`, `center` or `right`
@@ -96,24 +96,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 // numeroItemsCart++;
                 numeroItemsCart = arryCart.length;
                 icon.textContent = numeroItemsCart;
+                const textAddCart = "Item adicionado ao carrinho"
+                const cor = "#86EFAC"
+                tostifyMensage(textAddCart, cor)
             }
         }
 
-        function tostifyMensage(text, cor){
+        function tostifyMensage(text, cor) {
             Toastify({
                 text: text,
                 duration: 3000,
-               
+
                 close: true,
                 gravity: "top", // `top` or `bottom`
                 position: "center", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                 style: {
-                  background: cor,
-                  color: "black"
+                    background: cor,
+                    color: "black"
                 },
-               // Callback after click
-              }).showToast();
+                // Callback after click
+            }).showToast();
         }
         listarCarrinho(arryCart)
         console.log(arryCart)
@@ -158,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title.classList.add('font-black', 'text-sm');
             title.textContent = item.nome;
 
-            const priceSpan = document.createElement('span'); 
+            const priceSpan = document.createElement('span');
             priceSpan.classList.add('font-black');
             priceSpan.textContent = `preço: ${item.preco}R$`;
 
@@ -200,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // botãp de excluir item do carrinho
             const deleteBtn = document.createElement('button');
             deleteBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`
-            deleteBtn.addEventListener('click',() =>{
+            deleteBtn.addEventListener('click', () => {
                 arryCart = arryCart.filter((i) => i.id != item.id)
                 console.log("Depois da exclusão:", arryCart);
                 listarCarrinho(arryCart)
@@ -210,13 +213,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalPrecoMenu.textContent = `${precoTotalCart.toFixed(2)}`;
                 numeroItemsCart = arryCart.length;
                 icon.textContent = numeroItemsCart;
-                
+
                 console.log(numeroItemsCart)
 
-                
+
             })
 
-            quantityDiv.append(decreaseBtn, quantitySpan, increaseBtn,deleteBtn);
+            quantityDiv.append(decreaseBtn, quantitySpan, increaseBtn, deleteBtn);
             infoDiv.append(title, priceSpan, quantityDiv);
 
             itemDiv.append(img, infoDiv);
@@ -279,35 +282,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalizPedido = document.querySelector('#finalizar')
 
     finalizPedido.addEventListener('click', (e) => {
-       e.preventDefault()
-       const form = document.querySelector('form')
-       const nome = document.querySelector('#nome').value
-       const endereco = document.querySelector('#endereço').value
-       const adicionais= document.querySelector('#infoAdicional').value
-       const tipoPag= document.querySelector('#opcoes').value
-          
-       console.log(form)
+        e.preventDefault()
+        const form = document.querySelector('form')
+        const nome = document.querySelector('#nome').value
+        const endereco = document.querySelector('#endereço').value
+        const adicionais = document.querySelector('#infoAdicional').value
+        const tipoPag = document.querySelector('#opcoes').value
 
-       const cart = arryCart.map((item) => {
-         return(
-            ` -----PEDIDO------\n Nome: ${item.nome} |\n- Qnt: ${item.qnt} \n | Preço: R$ ${item.preco} | \n`
-         )
-       }).join("")
-       
-       const message = encodeURIComponent(cart)
-       const tel = "+5583981112469"
-       window.open(`https://wa.me/${tel}?text=${message} Cliente:${nome} | Endereço:${endereco} |Total:${precoTotalCart}`, "_blanck",
-    "nooper noreferrer")
-       
+        console.log(form)
 
-       //zerando carrinho e os preços
-       arryCart.length = 0
-       totalPreco.textContent = `${0}`;
-       totalPrecoMenu.textContent = `${0}`;
-       listarCarrinho(arryCart)
-       numeroItemsCart = arryCart.length;
-       icon.textContent = numeroItemsCart;
-       location.reload()
+        const cart = arryCart.map((item) => {
+            return (
+                ` -----PEDIDO------\n Nome: ${item.nome} |\n- Qnt: ${item.qnt} \n | Preço: R$ ${item.preco} | \n`
+            )
+        }).join("")
+
+        const message = encodeURIComponent(cart)
+        const tel = "+5583981112469"
+        window.open(`https://wa.me/${tel}?text=${message} Cliente:${nome} | Endereço:${endereco} |Total:${precoTotalCart}`, "_blanck",
+            "nooper noreferrer")
+
+
+        //zerando carrinho e os preços
+        arryCart.length = 0
+        totalPreco.textContent = `${0}`;
+        totalPrecoMenu.textContent = `${0}`;
+        listarCarrinho(arryCart)
+        numeroItemsCart = arryCart.length;
+        icon.textContent = numeroItemsCart;
+        location.reload()
     })
 
 
