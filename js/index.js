@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title.classList.add('font-black', 'text-sm');
             title.textContent = item.nome;
 
-            const priceSpan = document.createElement('span');
+            const priceSpan = document.createElement('span'); 
             priceSpan.classList.add('font-black');
             priceSpan.textContent = `preço: ${item.preco}R$`;
 
@@ -160,7 +160,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalPrecoMenu.textContent = `${precoTotalCart.toFixed(2)}`;
             });
 
-            quantityDiv.append(decreaseBtn, quantitySpan, increaseBtn);
+            // botãp de excluir item do carrinho
+            const deleteBtn = document.createElement('button');
+            deleteBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`
+            deleteBtn.addEventListener('click',() =>{
+                arryCart = arryCart.filter((i) => i.id != item.id)
+                console.log("Depois da exclusão:", arryCart);
+                listarCarrinho(arryCart)
+                let novototal = totalCart(arryCart)
+                precoTotalCart = novototal
+                totalPreco.textContent = `${precoTotalCart.toFixed(2)}`;
+                totalPrecoMenu.textContent = `${precoTotalCart.toFixed(2)}`;
+                
+            })
+
+            quantityDiv.append(decreaseBtn, quantitySpan, increaseBtn,deleteBtn);
             infoDiv.append(title, priceSpan, quantityDiv);
 
             itemDiv.append(img, infoDiv);
