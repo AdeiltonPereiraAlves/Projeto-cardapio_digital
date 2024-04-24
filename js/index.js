@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!arryCart.some(item => item.id === id)) {
             arryCart.push(item)
             precoTotalCart = totalCart(arryCart);
-            numeroItemsCart++;
+            // numeroItemsCart++;
+            numeroItemsCart = arryCart.length;
             icon.textContent = numeroItemsCart;
 
         }
@@ -74,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Se o item não foi encontrado, adicione-o ao carrinho
                 arryCart.push({ id: id, qnt: qnt + 1 }); // Adiciona o item com quantidade 1 ao carrinho
-                numeroItemsCart++;
+                // numeroItemsCart++;
+                numeroItemsCart = arryCart.length;
                 icon.textContent = numeroItemsCart;
             }
         }
@@ -171,6 +173,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 precoTotalCart = novototal
                 totalPreco.textContent = `${precoTotalCart.toFixed(2)}`;
                 totalPrecoMenu.textContent = `${precoTotalCart.toFixed(2)}`;
+                numeroItemsCart = arryCart.length;
+                icon.textContent = numeroItemsCart;
+                
+                console.log(numeroItemsCart)
+
                 
             })
 
