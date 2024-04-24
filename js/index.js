@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // numeroItemsCart++;
             numeroItemsCart = arryCart.length;
             icon.textContent = numeroItemsCart;
-            const textAddCart = "Item adicionado ao carrinho"
-            const cor = "#86EFAC"
-            tostifyMensage(textAddCart, cor)
+            let textAddCart = "Item adicionado ao carrinho"
+            let cores = "#86EFAC"
+            tostifyMensage(textAddCart, cores)
 
         }
         else {
