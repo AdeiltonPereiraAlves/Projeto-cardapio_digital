@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         listarCarrinho(arryCart)
         console.log(arryCart)
-        totalPreco.textContent = `${precoTotalCart}`;
-        totalPrecoMenu.textContent = `${precoTotalCart}`;
+        totalPreco.textContent = `${precoTotalCart.toFixed(2)}`;
+        totalPrecoMenu.textContent = `${precoTotalCart.toFixed(2)}`;
 
     }
 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             infoDiv.classList.add('flex', 'flex-col', 'p-5', 'items-center', 'justify-center');
 
             const title = document.createElement('h1');
-            title.classList.add('font-black');
+            title.classList.add('font-black', 'text-sm');
             title.textContent = item.nome;
 
             const priceSpan = document.createElement('span');
@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     quantitySpan.textContent = item.qnt;
                     precoTotalCart = totalCart(arryCart)
 
-                    totalPreco.textContent = `${precoTotalCart}`;
-                    totalPrecoMenu.textContent = `${precoTotalCart}`;
+                    totalPreco.textContent = `${precoTotalCart.toFixed(2)}`;
+                    totalPrecoMenu.textContent = `${precoTotalCart.toFixed(2)}`;
                 }
             });
 
@@ -156,8 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 precoTotalCart = totalCart(arryCart)
 
-                totalPreco.textContent = `${precoTotalCart}`;
-                totalPrecoMenu.textContent = `${precoTotalCart}`;
+                totalPreco.textContent = `${precoTotalCart.toFixed(2)}`;
+                totalPrecoMenu.textContent = `${precoTotalCart.toFixed(2)}`;
             });
 
             quantityDiv.append(decreaseBtn, quantitySpan, increaseBtn);
