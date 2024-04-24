@@ -70,7 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (itemNoCarrinho) {
                 // Se o item foi encontrado, aumente a quantidade
 
-                window.alert("O item ja esta no carrinho")
+              
+                Toastify({
+                    text: "O item ja esta no carrinho",
+                    duration: 3000,
+                   
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "red",
+                    },
+                   // Callback after click
+                  }).showToast();
 
             } else {
                 // Se o item não foi encontrado, adicione-o ao carrinho
