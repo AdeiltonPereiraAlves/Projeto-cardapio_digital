@@ -173,28 +173,38 @@
         </div>
 
         <!-- //carrinho -->
-        <div class="bg-slate-100 w-[80%] ml-10 h-full  lg:max-w-72   justify-center rounded-l-md flex-col items-center right-0 gap-4 hidden transition-all duration-50000 absolute shadow-lg shadow-left-strong overflow-x-hidden "
+        <!-- <button id="botaoFecharCarrinho" class="hover:text-zinc-600 w-52 h-52 fix">
+            <i class="fa-solid fa-xmark "></i>
+            
+            
+        </button> -->
+
+        <div class="bg-slate-100 w-[80%] ml-10  h-screen   lg:max-w-96  justify-center rounded-l-md flex-col right-0 top-0 gap-4 hidden transition-all duration-50000 fixed shadow-lg shadow-left-strong overflow-x-hidden "
             id="fechar-carrinho">
-            <div class="flex justify-start w-full items-baseline ">
-                <div class="text-xl ml-2 md:mt-2 p-2">
-                    <button id="botaoFecharCarrinho" class="hover:text-zinc-600"><i
-                            class="fa-solid fa-xmark "></i></button>
-                </div>
 
+            <div class="w-full flex justify-start absolute top-0 z-10 h-10">
+                <button id="botaoFecharCarrinho" class="hover:text-zinc-600 absolute p-2 text-xl ">
+                    <i class="fa-solid fa-xmark "> </i>
+                
+                </button>
             </div>
-            <div
-                class="bg-slate-100 w-screen m-auto h-full lg:max-w-72 justify-centerc flex  flex-col items-center right-0 gap-4  item-container">
 
+       
+            <div class="bg-slate-100  w-[80%] h-[80%] lg:max-w-72 justify-centerc flex  flex-col items-center right-0 gap-4  item-container fixed inset-y-0  p-4  top-5">
+              
             </div>
 
 
             <!-- finalizar pedido -->
-            <div class="flex flex-col bottom-0 fixed m-4">
+            <div class="flex flex-col bottom-0 fixed m-4 justify-center w-full lg:w-auto lg:justify-center">
 
                 <div class="font-black text-lg flex justify-center">Subtotal: $<span id="total-carrinho"
-                        class="total-carrinho"> 0.00</span></div>
-                <button class="bg-green-300 p-4 font-black text-zinc-700 rounded-sm hover:bg-green-400"
-                    id="btn-pedidos">Finalizar Compra</button>
+                        class="total-carrinho"> 0.00</span>
+                </div>
+                <button
+                    class="bg-green-300 flex justify-center p-4 font-black text-zinc-700 rounded-sm hover:bg-green-400"
+                    id="btn-pedidos">Finalizar Compra
+                </button>
             </div>
 
         </div>
