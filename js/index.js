@@ -63,27 +63,32 @@ document.addEventListener('DOMContentLoaded', () => {
             // numeroItemsCart++;
             numeroItemsCart = arryCart.length;
             icon.textContent = numeroItemsCart;
+            const textAddCart = "Item adicionado ao carrinho" 
+            const cor = "#86EFAC"
+            tostifyMensage(textAddCart, cor)
 
         }
         else {
             const itemNoCarrinho = arryCart.find(item => item.id === id);
             if (itemNoCarrinho) {
                 // Se o item foi encontrado, aumente a quantidade
-
+                const text = "O item ja esta no carrinho"
+                const cor = "red"
+                tostifyMensage(text, cor)
               
-                Toastify({
-                    text: "O item ja esta no carrinho",
-                    duration: 3000,
+                // Toastify({
+                //     text: "O item ja esta no carrinho",
+                //     duration: 3000,
                    
-                    close: true,
-                    gravity: "top", // `top` or `bottom`
-                    position: "center", // `left`, `center` or `right`
-                    stopOnFocus: true, // Prevents dismissing of toast on hover
-                    style: {
-                      background: "red",
-                    },
-                   // Callback after click
-                  }).showToast();
+                //     close: true,
+                //     gravity: "top", // `top` or `bottom`
+                //     position: "center", // `left`, `center` or `right`
+                //     stopOnFocus: true, // Prevents dismissing of toast on hover
+                //     style: {
+                //       background: "red",
+                //     },
+                //    // Callback after click
+                //   }).showToast();
 
             } else {
                 // Se o item não foi encontrado, adicione-o ao carrinho
@@ -92,6 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 numeroItemsCart = arryCart.length;
                 icon.textContent = numeroItemsCart;
             }
+        }
+
+        function tostifyMensage(text, cor){
+            Toastify({
+                text: text,
+                duration: 3000,
+               
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: cor,
+                  color: "black"
+                },
+               // Callback after click
+              }).showToast();
         }
         listarCarrinho(arryCart)
         console.log(arryCart)
