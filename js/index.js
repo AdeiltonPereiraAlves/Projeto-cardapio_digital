@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tabela.innerHTML += `
             <tr>
             <td class="w-1/2 border border-gray-300 px-4 py-2">${item.nome}<span> x ${item.qnt}</span></td>
-            <td class="w-1/2 border border-gray-300 px-4 py-2">${item.preco}</td>
+            <td class="w-1/2 border border-gray-300 px-4 py-2">${item.preco.toFixed(2)}</td>
         </tr>
             `
 
@@ -274,7 +274,8 @@ document.addEventListener('DOMContentLoaded', () => {
        
        const message = encodeURIComponent(cart)
        const tel = "+5583981112469"
-       window.open(`https://wa.me/${tel}?text=${message} Cliente:${nome} | Endereço:${endereco} |Total:${precoTotalCart}`, "_blanck")
+       window.open(`https://wa.me/${tel}?text=${message} Cliente:${nome} | Endereço:${endereco} |Total:${precoTotalCart}`, "_blanck",
+    "nooper noreferrer")
        
 
        //zerando carrinho e os preços
